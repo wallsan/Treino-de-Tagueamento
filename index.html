@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="" x-data="{
+    <div class=" bg-[url('/images/sliderbg.png')]" x-data="{
         images: ['images/air.png','images/blazer.png','images/hippie.png','images/jordan.png'],
         activeImg: null,
         prev(){
@@ -68,16 +68,16 @@
         }
     }">
             
-        <div class="relative bg-[url('/images/sliderbg.png')]">
-            <div class="justify-between flex">
-                <a href="#" @click.prevent="prev" class="items-center text-white  left-0 top-1/2 -transalate-1/2">
+        <div class="relative flex">
+            <div class="justify-between">
+                <a href="#" @click.prevent="prev" class="items-center text-white  pt-1/2 -transalate-y-1/2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </a>
 
                 <template class="" x-for="image in images">
-                    <img class="content-center items-center justify-center" x-show="activeImg === image" :src="image" alt="slideImg">
+                    <img x-transition x-show="activeImg === image" :src="image" alt="slideImg">
                 </template>
                 
 
