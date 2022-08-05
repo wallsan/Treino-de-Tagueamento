@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store Test</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="container">
@@ -23,7 +25,13 @@
                     <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
                     <li><a href="">Account</a></li>
-                    <li><a href="">test</a></li>
+                    <li>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                        </a>
+                    </li>
                 </ul>
             </nav>
     
@@ -37,6 +45,47 @@
                 <img src="images/image1.png" alt="">
             </div>
         </div>
+    </div>
+    <div class="" x-data="{
+        images: ['images/air.png','images/blazer.png','images/hippie.png','images/jordan.png'],
+        activeImg: null,
+        prev(){
+            this.images.indexOf(this.activeImg)
+        },
+        next(){
+
+        },
+        init() {
+            this.activeImg = this.images.length > 0 ? this.images[0] : null
+        }
+    }">
+            <div class="relative bg-[url('/images/sliderbg.png')]">
+                <div class="items-center">
+                    <img class="" :src="activeImg" alt="slideImg">
+                </div>
+
+                <a href="#" @click.prevent="activatePrev" class="text-white absolute left-0 top-1/2 -transalate-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </a>
+
+                <a href="#" @click.prevent="activatePrev" class="text-white absolute right-0 top-1/2 -transalate-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#" class="">
+                    <button class="absolute top-3/4 font-black text-white right-24 bg-black ">BUY NOW!</button>
+                </a>
+            </div>
+            
+            <div class="flex">
+                <img src="/images/air.png" alt="slideImg">
+                <img src="/images/blazer.png" alt="slideImg">
+                <img src="/images/hippie.png" alt="slideImg">
+                <img src="/images/jordan.png" alt="slideImg">
+            </div>
     </div>
     
 </body>
